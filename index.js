@@ -14,6 +14,8 @@ const passportJwt = require('./passport-jwt');
 
 const app = express();
 
+const PORT = process.env.PORT || 4000
+
 app.use(passport.initialize());
 passportJwt(passport)
 
@@ -35,8 +37,8 @@ mongoose.connect('mongodb+srv://kamyshan19:kamyshan19@dbproject.3rpy3ne.mongodb.
 
   console.log('mongodb connected');
   
-  app.listen(5000, () => {
-    console.log('Server listen on ' + 5000)
+  app.listen(PORT, () => {
+    console.log('Server listen on ' + PORT)
   })
 })
 
@@ -46,7 +48,7 @@ app.use('/api/categories', categoryRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 
-if(process.env.NODE_ENV === 'production'){
+if(process.env.PORT === 'production'){
   app.use(express.static('client/dist/client'))
 
   app.get('*', (req, res) => {
