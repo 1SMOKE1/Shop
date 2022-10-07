@@ -48,8 +48,8 @@ app.use('/api/categories', categoryRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 
-if(process.env.PORT === 'production'){
-  app.use(express.static('client/dist/client/'))
+if(process.env.NODE_ENV === 'production'){
+  app.use(express.static('client/dist/client'))
 
   app.get('*', (req, res) => {
     res.sendFile(
