@@ -1,0 +1,17 @@
+
+<header class="container">
+  <mat-toolbar color="primary" class="p-3 justify-content-between">
+    <p class="text-light header-text">{{'Pharmacy shop' | uppercase}}</p>
+    <button *ngIf="isLoginMode" mat-button (click)="toRegisterMode()">
+      Registration
+    </button>
+    <button *ngIf="isRegisterMode" mat-button (click)="toLoginMode()">
+      Login
+    </button>
+  </mat-toolbar>
+  
+</header>
+
+
+<ps-login *ngIf="isLoginMode"></ps-login>
+<ps-registration *ngIf="isRegisterMode"></ps-registration>

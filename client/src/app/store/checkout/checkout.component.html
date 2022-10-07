@@ -1,0 +1,29 @@
+<ps-header></ps-header>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8 offset-2 my-3">
+      <div *ngIf="!endOrder; else  thanks">
+        <form [formGroup]="orderForm" >
+          <label for="name">Name</label>
+          <input class="my-2 py-2 " formControlName="name" type="text" id="name" placeholder="Your Name">
+          <label for="phone">Phone</label>
+          <input class="my-2 py-2 " formControlName="phone" type="number" id="phone" placeholder="Your Phone">
+          <label for="address">Address</label>
+          <input class="my-2 py-2 " formControlName="address" type="text" id="address" placeholder="Your Address">
+          <div class="d-flex justify-content-center">
+            <button type="button" [routerLink]="'/card'"  class="btn btn-secondary m-1">Back</button>
+            <button [disabled]="orderForm.invalid" type="submit" class="btn btn-primary m-1" (click)="submit()">Complete Order</button>
+          </div>
+        </form>
+      </div>
+      <ng-template #thanks>
+        <div class="d-flex flex-column align-items-center justify-content-center">
+          <h1>Thanks</h1>
+        <p>Thanks for placing your order.</p>
+        <p>We`ll ship your goods as soon as possible.</p>
+        <button class="btn btn-primary m-1" [routerLink]="'/store'" >Return to Store</button>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

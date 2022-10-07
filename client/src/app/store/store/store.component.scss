@@ -1,0 +1,46 @@
+.nav{
+  &-list{
+    display: flex;
+    flex-direction: column;
+  }
+ 
+
+}
+
+.row{
+  margin: 0;
+}
+
+.card{
+  &-body,
+  &-header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &-text{
+    margin: 0;
+  }
+  &-price{
+    &-wrap{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      padding: 10px;
+      border-radius: 50%;
+      transition: all .3s ease;
+      &:hover{
+        scale: 1.1;
+      }
+    }
+  }
+}
+
+.loader{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+}

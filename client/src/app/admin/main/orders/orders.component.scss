@@ -1,0 +1,14 @@
+.order{
+  &-info{
+    &-wrap{
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+  &-card{
+    &-btn{
+      color: rgb(97, 41, 170);
+    }
+  }
+}

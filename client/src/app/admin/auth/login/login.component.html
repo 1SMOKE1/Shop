@@ -1,0 +1,66 @@
+
+<h1 align="center">Login</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="offset-5 col-6 offset-sm-5 col-sm-6">
+      <form [formGroup]="loginForm">
+        <!-- EMAIL -->
+        <div mat-dialog-content>
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>{{ "email" | titlecase }}</mat-label>
+            <input formControlName="email" matInput placeholder="Enter email" />
+            <mat-error
+              *ngIf="
+                loginForm.get('email')?.invalid ||
+                (loginForm.get('email')?.touched && loginForm.get('email')?.dirty)
+              "
+            >
+              this is Required field
+            </mat-error>
+          </mat-form-field>
+          <!-- PASSWORD -->
+          <div mat-dialog-content>
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>{{ "password" | titlecase }}</mat-label>
+              <input [type]="hide ? 'password' : 'text'" formControlName="password" matInput placeholder="Enter password" />
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <mat-error
+                *ngIf="
+                  loginForm.get('password')?.invalid ||
+                  (loginForm.get('password')?.touched && loginForm.get('password')?.dirty)
+                "
+              >
+                this is Required field
+              </mat-error>
+            </mat-form-field>
+        </div>
+        
+        </div>
+        <div mat-dialog-actions>
+          <button
+            [disabled]="loginForm.invalid"
+            type="button"
+            mat-raised-button
+            (click)="complite()"
+            color="primary"
+            class="m-1"
+          >
+            OK
+          </button>
+          <button
+            type="button"
+            mat-raised-button
+            [routerLink]="'/'"
+            color="primary"
+            class="m-1"
+          >
+            go Back
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,7 @@
+<div class="basket-wrap text-light">
+  <p class="basket-text">Your card: {{cardLineService.getCardLines().length === 0 ? 'is empty' : cardLineService.getCardLines().length + ' item(s)'}} 
+    Total: {{ cardLineService.getTotal() === 0 ? 'nothing Ordered' : '$' + cardLineService.getTotal() + '.00'}}
+  </p>
+  <img class="basket-img" src="assets/basket_icon.png" (click)="toCard()"  >
+</div>
+

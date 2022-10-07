@@ -1,0 +1,37 @@
+<ps-header></ps-header>
+<div class="row">
+  <div class="offset-2 col-1">
+    <div class="nav-list my-5">
+      <div class="btn btn-primary nav-btn my-1" (click)="getProducts()" >All</div>
+      <button *ngFor="let btns of navBtns" class="btn btn-primary nav-btn my-1" (click)="filterCategory(btns)">{{btns}}</button>
+      <button [routerLink]="'/admin/main'" class="btn btn-danger">Admin</button>
+    </div>
+  </div>
+  <div class="offset-1 col-5">
+    <div *ngIf="products.length === 0; else page" class="loader">
+      <ps-loader></ps-loader>
+    </div>
+    <ng-template #page>
+      <div class="card-list my-3">
+        <div class="card my-1" *ngFor="let card of products | slice:0:itemsPerPage">
+          <div class="card-header">
+            <p class="card-text" >{{card.name}}</p>
+            <div class="bg-danger card-price-wrap">
+              <p class="card-text text-light">${{card.price}}.00</p>
+            </div>
+          </div>
+          <div class="card-body">
+            <p class="card-text">{{card.description}} ({{card.category}})</p>
+            <img [src]="card.imageSrc" alt="">
+            <button class="btn btn-success" (click)="addToCard(card)">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+      <select (change)="changeItemsPerPage($event)">
+        <option *ngFor="let item of products; let i = index" value="{{i + 1}}">{{i + 1}} card</option>
+      </select>
+    </ng-template>
+    
+  </div>
+</div>
+

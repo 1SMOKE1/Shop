@@ -1,0 +1,48 @@
+<h1 mat-dialog-title align="center">Categories</h1>
+
+<form [formGroup]="categoryForm" >
+  <div mat-dialog-content>
+
+  <div class="form-field-wrap">
+    <mat-form-field appearance="outline" class="form-field me-2">
+      <mat-label>Category</mat-label>
+      <input formControlName="name" matInput placeholder="Enter category">
+      <mat-error *ngIf="categoryForm.get('name')!.errors && categoryForm.get('name')!.dirty">
+        This is Required field
+      </mat-error>
+    </mat-form-field>
+  
+    <button type="button" mat-raised-button color="primary" (click)="complete()">
+      OK
+    </button>
+  </div>
+  
+
+
+
+    <mat-list>
+      <ng-container *ngFor="let category of categories">
+        <mat-list-item>
+          <div class="list-item-wrap">
+            <p>
+              {{category.name}}
+            </p>
+            <div>
+              <button (click)="edit(category)" mat-icon-button>
+                <mat-icon>mode_edit_outline</mat-icon>
+              </button>
+              <button mat-icon-button (click)="delete(category._id || 'undefined')">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+      </ng-container>
+      <mat-list-item *ngIf="categories.length === 0">Empty</mat-list-item>
+    </mat-list>
+    <div align="end">
+      <button type="button" mat-button mat-dialog-close >close</button>
+    </div>
+  </div>
+</form>

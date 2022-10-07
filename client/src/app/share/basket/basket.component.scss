@@ -1,0 +1,19 @@
+
+.basket{
+  &-wrap{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  &-img{
+    max-width: 25px;
+    transition: all .3s ease;
+    cursor: pointer;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+  &-text{
+    margin: 0;
+  }
+}

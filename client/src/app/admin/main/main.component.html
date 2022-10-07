@@ -1,0 +1,14 @@
+<ps-header></ps-header>
+<div class="container-fluid">
+  <div class="row my-3">
+    <div class="offset-2 col-1">
+      <button class="w-100 m-1" #rla="routerLinkActive" [routerLink]="'/admin/main/products'" mat-raised-button [color]="rla.isActive ?  'primary' : ''" routerLinkActive  >Products</button>
+      <button class="w-100 m-1" #rla2="routerLinkActive" [routerLink]="'/admin/main/orders'" mat-raised-button [color]="rla2.isActive ?  'primary' : ''" routerLinkActive  >Orders</button>
+      <button class="w-100 m-1" mat-stroked-button color="warn" (click)="logout()">LogOut</button>
+    </div>
+    <div class="offset-1 col-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+

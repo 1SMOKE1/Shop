@@ -1,0 +1,9 @@
+<header class="container">
+  <mat-toolbar color="primary" class="p-3 justify-content-between">
+    <p class="text-light header-text">{{'Pharmacy shop' | uppercase}}</p>
+    <ps-basket *ngIf="router.url === '/store'"></ps-basket>
+    <p *ngIf="router.url === '/admin/auth/login'">Registration</p>
+  </mat-toolbar>
+</header>
+
+

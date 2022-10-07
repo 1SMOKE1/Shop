@@ -1,0 +1,59 @@
+
+<h1 mat-dialog-title align="center">{{isEditMode() ? 'Edit' : 'Create'}} Product</h1>
+<form [formGroup]="formNewProduct">
+  <div mat-dialog-content>
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>{{'name' | titlecase}}</mat-label>
+      <input formControlName="name" matInput placeholder="Enter name">
+      <mat-error *ngIf="formNewProduct.get('name')?.invalid || (formNewProduct.get('name')?.touched && formNewProduct.get('name')?.dirty)">
+        this is Required field
+      </mat-error>
+    </mat-form-field>
+    
+    <div class="category-wrapper">
+      <mat-form-field appearance="fill">
+        <mat-label>Choose an option</mat-label>
+        <mat-select formControlName="category">
+          <mat-option selected="true" disabled="true">Choose category</mat-option>
+          <mat-option *ngFor="let category of categories" [value]="category.name">{{category.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button (click)="openCategoryForm()" class="btn-add-category" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
+
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>{{'description' | titlecase}}</mat-label>
+      <textarea formControlName="description" matInput placeholder="Enter description"></textarea>
+      <mat-error *ngIf="formNewProduct.get('description')?.invalid || (formNewProduct.get('description')?.touched && formNewProduct.get('description')?.dirty)">
+        this is Required field
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>{{'price' | titlecase}}</mat-label>
+      <input class="right-align" type="number" formControlName="price" matInput placeholder="Enter price">
+      <span matPrefix class="d-inline">$&nbsp;</span>
+      <span matSuffix>.00</span>
+      <mat-error *ngIf="formNewProduct.get('price')?.invalid || (formNewProduct.get('price')?.touched && formNewProduct.get('price')?.dirty)">
+        this is Required field
+      </mat-error>
+    </mat-form-field>
+    <div class="file-container">
+      <input #inputFileRef hidden type="file" (change)="onFileUpload($event)">
+      <button (click)="triggerInput()" mat-raised-button color="primary">Add image</button>
+      <img [ngStyle]="{'display': imagePreview === '' ? 'none' : 'block'}" class="img-preview" [src]="imagePreview" alt="">
+    </div>
+    
+    
+
+  </div>
+  <div mat-dialog-actions>
+    <button type="button" mat-button mat-dialog-close (click)="cancel()">Cancle</button>
+    <button [disabled]="formNewProduct.invalid" type="submit" mat-raised-button mat-dialog-close (click)="complete()" color="primary">OK</button>
+  </div>
+</form>
+
+

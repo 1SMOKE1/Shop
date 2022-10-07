@@ -1,0 +1,27 @@
+.form-field{
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.right-align{
+  text-align: right;
+  position: relative;
+  top: 3px;
+}
+
+.category-wrapper{
+  display: flex;
+  align-items: baseline;
+}
+
+.btn-add-category{
+  margin: 0 0 0 20px;
+}
+
+
+
+
+.img-preview{
+  height: 300px
+}
