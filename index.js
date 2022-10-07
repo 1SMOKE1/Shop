@@ -14,7 +14,7 @@ const passportJwt = require('./passport-jwt');
 
 const app = express();
 
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 5000
 
 app.use(passport.initialize());
 passportJwt(passport)
@@ -49,7 +49,7 @@ app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 
 if(process.env.PORT === 'production'){
-  app.use(express.static('client/client/dist'))
+  app.use(express.static('client/dist/client/'))
 
   app.get('*', (req, res) => {
     res.sendFile(
