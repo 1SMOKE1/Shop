@@ -61,6 +61,6 @@ app.use('/api/orders', orderRoutes);
 // }
 
 app.all('*', (req, res) => {
-  res.status(200).sendFile('/', {root: 'client/client/dist/index.html'})
+  res.status(200).sendFile('/', {root: 'client/client/dist/pharmacy_shop/index.html'})
 })
 
