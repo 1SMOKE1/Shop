@@ -61,7 +61,7 @@ app.use('/api/orders', orderRoutes);
 //   })
 // }
 
-app.get("*", (req, res) => {
+app.all("*", (req, res) => {
   res.sendFile(path.join(__dirname + "/client/dist/pharmacy_shop/index.html"));
 });
 
