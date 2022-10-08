@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
+const path = require('path');
 
 const authRoutes = require('./routes/user');
 const categoryRoutes = require('./routes/category');
