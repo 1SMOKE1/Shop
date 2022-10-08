@@ -64,4 +64,3 @@ app.all('*', (req, res) => {
   res.status(200).sendFile('/', {root: 'client/client/dist/index.html'})
 })
 
-
