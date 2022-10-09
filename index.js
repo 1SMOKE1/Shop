@@ -70,7 +70,7 @@ app.use('/api/orders', orderRoutes);
 app.use(express.static(__dirname + '/dist/pharmacy_shop'))
 
 app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname + 'dist/pharmacy_shop', "index.html"));``
+  res.sendFile(path.join(__dirname + '/client/dist/pharmacy_shop/', "index.html"));``
 })
 
 
