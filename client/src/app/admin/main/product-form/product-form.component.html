@@ -9,20 +9,6 @@
         this is Required field
       </mat-error>
     </mat-form-field>
-    
-    <div class="category-wrapper">
-      <mat-form-field appearance="fill">
-        <mat-label>Choose an option</mat-label>
-        <mat-select formControlName="category">
-          <mat-option selected="true" disabled="true">Choose category</mat-option>
-          <mat-option *ngFor="let category of categories" [value]="category.name">{{category.name}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <button (click)="openCategoryForm()" class="btn-add-category" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
-        <mat-icon>add</mat-icon>
-      </button>
-    </div>
-
 
     <mat-form-field appearance="outline" class="form-field">
       <mat-label>{{'description' | titlecase}}</mat-label>

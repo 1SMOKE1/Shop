@@ -13,7 +13,7 @@ export class CreateCategoryFormComponent implements OnInit {
 
   public categoryForm: FormGroup = new FormGroup({
     'name': new FormControl('', Validators.required),
-    '_id': new FormControl(null)
+      
   })
 
   public categories: CategoryModel[] = [];

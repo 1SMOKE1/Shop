@@ -12,14 +12,12 @@ export class DataBaseService {
 
   public addProduct(product: Product, image: File | null): Observable<Product>{
     const formData = new FormData();
-    console.log(image);
     formData.append('name', product.name);
     formData.append('description', product.description);
     formData.append('price', product.price.toString());
     formData.append('category', product.category);
 
     if(image){
-      console.log('send', image);
       formData.append('image', image, image.name);
     }
 
