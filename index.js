@@ -69,8 +69,8 @@ app.use('/api/orders', orderRoutes);
 
 // app.use(express.static(__dirname + '/dist/pharmacy_shop'))
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/client/dist/pharmacy_shop/index.html');
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client/dist/pharmacy_shop/index.html'));
 })
 
 
